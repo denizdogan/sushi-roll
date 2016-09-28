@@ -22,7 +22,7 @@ chop(size = null, align = null)
     else if size is spread
       flex: 1 1 auto
     else if size is a 'unit'
-      if unit(size) is 'stretch'
+      if unit(size) is 'spread'
         flex: unit(size, '') 1 size
       flex: 0 1 size
     else
@@ -38,16 +38,6 @@ sushi-roll-main()
     > *
       chop: arguments[0]
     return
-
-  // TODO:
-  // sushi-roll: stretch -> one stretch, rest untouched
-  // sushi-roll: stretch, etc, justify around, align center -> stretch for the rest
-  // sushi-roll-justify: around
-  // sushi-roll-align: center
-  // chop-size: stretch
-  // chp-align: end
-  // sushi-roll = (justify|align){,2} [chop]*
-  // chop = [align] [size]
 
   // two or more chops
   for arg, idx in arguments
@@ -72,20 +62,3 @@ sushi-justify()
 
 chop-align()
   align-self: arguments
-
-chop-builtin-fit()
-  -moz-foo: 1
-
-sushi()
-  for arg, idx in arguments
-    fun_name = unquote('chop-builtin-' + arg)
-    if fun_name is not a 'function'
-      continue
-
-// ideas for the future:
-// - modularize everything to make it easier to extend
-// - repeat module which repeats a given roo N times:
-//   roo: repeat 4 ()
-// - space module which uses pseudo-elements to insert spacing
-
-// sushi-roll: fit fit

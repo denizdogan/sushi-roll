@@ -1,0 +1,93 @@
+@require '../../sushi-roll'
+
+max_width = 767px
+base_padding = 1rem
+
+palette = {
+  primary-color-dark: #388E3C,
+  primary-color: #4CAF50,
+  primary-color-light: #C8E6C9,
+  primary-color-text: #FFFFFF,
+  accent-color: #FFEB3B,
+  primary-text-color: #212121,
+  secondary-text-color: #757575,
+  divider-color: #BDBDBD,
+}
+palette.white = white
+palette.black = palette.primary-text-color
+
+$list-unstyled {
+  list-style: none
+}
+
+centered(width, margin = 0 auto)
+  max-width: width
+  margin: margin
+
+*
+  box-sizing: border-box
+
+body
+  padding: base_padding
+  color: palette.primary-text-color
+
+h1
+h2
+  color: palette.primary-color-dark
+
+h3
+  color: palette.primary-color-dark
+  background: palette.primary-color-light
+  padding: base_padding
+
+#container
+  centered: max_width
+
+#main-header
+  sushi-roll: spread 100% spread
+  flex-wrap: wrap
+  align-items: center
+
+  h2
+    order: 1
+
+  nav
+    a
+      padding: .5em 1em
+      background: palette.accent-color
+      border-radius: 999px
+      text-decoration: none
+      color: palette.primary-text-color
+      font-weight: bold
+
+*[id^="example-"]
+  @extends $list-unstyled
+  background: darken(palette.white, 10%)
+  padding: base_padding
+  margin: 1rem 0 0
+  margin-left: 1px
+
+  > li
+    height: 4rem
+    line-height: 4rem
+    padding: 0 4px
+    text-align: center
+    font-size: .8rem
+    font-weight: bold
+
+    for color, idx in slice(values(palette), 0, 4)
+      index = idx + 1
+      &:nth-child({'' + index + 'n+' + index})
+        if light(color)
+          color: palette.black
+        else
+          color: palette.white
+        background: color
+
+#example-1
+  @extends $list-unstyled
+  sushi-roll: 50px spread fit 50px
+  
+  > *
+    height: 100px
+    line-height: 100px
