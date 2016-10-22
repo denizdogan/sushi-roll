@@ -191,13 +191,17 @@ aside {
     table-layout: fixed;
     width: 100%;
     font-size: 14px;
+    margin: 2em 0;
 
     @media screen and (max-width: 500px) {
       font-size: 11px;
     }
 
-    th {
-      text-align: left;
+    td, th {
+      text-align: right;
+      &:first-child {
+        text-align: left;
+      }
     }
   }
 }

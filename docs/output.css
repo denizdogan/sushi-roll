@@ -179,6 +179,7 @@ aside h5 {
   table-layout: fixed;
   width: 100%;
   font-size: 14px;
+  margin: 2em 0;
 }
 
 @media screen and (max-width: 500px) {
@@ -188,7 +189,11 @@ aside h5 {
   }
 }
 
-.cheat-sheet table th {
+.cheat-sheet table td, .cheat-sheet table th {
+  text-align: right;
+}
+
+.cheat-sheet table td:first-child, .cheat-sheet table th:first-child {
   text-align: left;
 }
 
@@ -359,33 +364,25 @@ sushi-padding: 1em; */
   box-sizing: border-box;
 }
 #example-mini-1 > *:nth-child(1){
-  flex-grow: 0;
-  flex-shrink: 0;
-  flex-basis: auto;
+  flex-basis: fit;
   flex-grow: 0;
   flex-shrink: 1;
   box-sizing: border-box;
 }
 #example-mini-1 > *:nth-child(2){
-  flex-grow: 0;
-  flex-shrink: 0;
-  flex-basis: auto;
+  flex-basis: fit;
   flex-grow: 0;
   flex-shrink: 1;
   box-sizing: border-box;
 }
 #example-mini-1 > *:nth-child(3){
-  flex-grow: 0;
-  flex-shrink: 0;
-  flex-basis: auto;
+  flex-basis: fit;
   flex-grow: 0;
   flex-shrink: 1;
   box-sizing: border-box;
 }
 #example-mini-1 > *:nth-child(4){
-  flex-grow: 1;
-  flex-shrink: 1;
-  flex-basis: auto;
+  flex-basis: spread;
   flex-grow: 0;
   flex-shrink: 1;
   box-sizing: border-box;
