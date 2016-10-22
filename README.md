@@ -10,7 +10,7 @@
 
 ## Usage
 
-Documentation is in the works
+[Official documentation](https://denizdogan.github.io/sushi-roll)
 
 ## TODO
 
