@@ -42,6 +42,81 @@
     </div>
   </section>
 
+  <section class="usage">
+    <div>
+      <h3>Installation &amp; Usage</h3>
+
+      <p>
+        To install Sushi Roll, run:
+      </p>
+
+      <pre><code>$ npm install -D sushi-roll</code></pre>
+
+      <p>
+        Then include it in your PostCSS plugin chain, like you would any other plugin. There are currently no options to configure.
+      </p>
+
+      <p>
+        If you're new to PostCSS but want to try Sushi Roll, install <a href="https://github.com/code42day/postcss-cli" target="_blank">postcss-cli</a> and try it like this:
+      </p>
+
+      <pre><code>$ npm install -g postcss-cli
+$ npm install sushi-roll
+$ postcss --local-plugins -u sushi-roll -o output.css input.css</code></pre>
+
+      <p>
+        For maximum compatibility, use some sort of Flexbugs fixing plugin for PostCSS, I'm not sure which one is the best to be honest. <a href="postcss-flexbugs-fixes">PostCSS Flexbugs Fixes</a> seems good.
+      </p>
+    </div>
+  </section>
+
+    <section class="cheat-sheet" id="cheat-sheet">
+    <div>
+      <h3>Cheat sheet</h3>
+
+      <p>
+        If you are already familiar with flexbox, the following says it all:
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th><code>sushi-roll</code></th>
+            <th><code>flex-basis</code></th>
+            <th><code>flex-grow</code></th>
+            <th><code>flex-shrink</code></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>100px</code></td>
+            <td><code>100px</code></td>
+            <td class="inherited"><code>0</code></td>
+            <td class="inherited"><code>1</code></td>
+          </tr>
+          <tr>
+            <td><code>&gt;auto</code></td>
+            <td><code>auto</code></td>
+            <td><code>1</code></td>
+            <td class="inherited"><code>0</code></td>
+          </tr>
+          <tr>
+            <td><code>~20%</code></td>
+            <td><code>20%</code></td>
+            <td><code>1</code></td>
+            <td class="inherited"><code>1</code><code></code></td>
+          </tr>
+          <tr>
+            <td><code>=5em</code></td>
+            <td><code>5em</code></td>
+            <td><code>0</code></td>
+            <td><code>0</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
   <section class="examples" id="examples">
     <div>
       <h3>Doucmentation</h3>
@@ -178,81 +253,6 @@
         This documentation is incomplete, as the project is work in progress.
       </p>
 
-    </div>
-  </section>
-
-  <section class="cheat-sheet" id="cheat-sheet">
-    <div>
-      <h3>Cheat sheet</h3>
-
-      <p>
-        If you are already familiar with flexbox, the following says it all:
-      </p>
-
-      <table>
-        <thead>
-          <tr>
-            <th><code>sushi-roll</code></th>
-            <th><code>flex-basis</code></th>
-            <th><code>flex-grow</code></th>
-            <th><code>flex-shrink</code></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><code>100px</code></td>
-            <td><code>100px</code></td>
-            <td class="inherited"><code>0</code></td>
-            <td class="inherited"><code>1</code></td>
-          </tr>
-          <tr>
-            <td><code>&gt;auto</code></td>
-            <td><code>auto</code></td>
-            <td><code>1</code></td>
-            <td class="inherited"><code>0</code></td>
-          </tr>
-          <tr>
-            <td><code>~20%</code></td>
-            <td><code>20%</code></td>
-            <td><code>1</code></td>
-            <td class="inherited"><code>1</code><code></code></td>
-          </tr>
-          <tr>
-            <td><code>=5em</code></td>
-            <td><code>5em</code></td>
-            <td><code>0</code></td>
-            <td><code>0</code></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <section class="usage">
-    <div>
-      <h3>Installation &amp; Usage</h3>
-
-      <p>
-        To install Sushi Roll, run:
-      </p>
-
-      <pre><code>$ npm install -D sushi-roll</code></pre>
-
-      <p>
-        Then include it in your PostCSS plugin chain, like you would any other plugin. There are currently no options to configure.
-      </p>
-
-      <p>
-        If you're new to PostCSS but want to try Sushi Roll, install <a href="https://github.com/code42day/postcss-cli" target="_blank">postcss-cli</a> and try it like this:
-      </p>
-
-      <pre><code>$ npm install -g postcss-cli
-$ npm install sushi-roll
-$ postcss --local-plugins -u sushi-roll -o output.css input.css</code></pre>
-
-      <p>
-        For maximum compatibility, use some sort of Flexbugs fixing plugin for PostCSS, I'm not sure which one is the best to be honest. <a href="postcss-flexbugs-fixes">PostCSS Flexbugs Fixes</a> seems good.
-      </p>
     </div>
   </section>
 
