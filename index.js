@@ -72,16 +72,10 @@ const sushiRoll = decl => {
     })
 
     // handle the flex-basis
-    if (presets.hasOwnProperty(basis)) {
-      presets[basis].forEach(prop => {
-        rule.append(prop)
-      })
-    } else {
-      rule.append({
-        prop: 'flex-basis',
-        value: basis
-      })
-    }
+    rule.append({
+      prop: 'flex-basis',
+      value: basis
+    })
 
     // handle the prefix
     prefixes[prefix].forEach(prop => {
