@@ -1,0 +1,13 @@
+{
+  "input": "input.css",
+  "output": "output.css",
+  "local-plugins": true,
+  "use": [
+    "postcss-utilities",
+    "postcss-simple-vars",
+    "postcss-nested",
+    "sushi-roll",
+    "cssnano",
+    "postcss-flexbugs-fixes"
+  ]
+}

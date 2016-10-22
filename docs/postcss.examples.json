@@ -1,0 +1,11 @@
+{
+  "input": "bootstrap-examples/starter-template.input.css",
+  "output": "bootstrap-examples/starter-template.output.css",
+  "local-plugins": true,
+  "use": [
+    "postcss-utilities",
+    "postcss-simple-vars",
+    "postcss-nested",
+    "sushi-roll"
+  ]
+}

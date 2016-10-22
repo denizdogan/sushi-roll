@@ -1,0 +1,265 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico|Roboto:300|Ubuntu Mono');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css');
+
+$yellow: #ffe74c;
+$red: #ff5964;
+$green: #b2f37a;
+$white: #fff;
+$dark-blue: #38618c;
+$light-blue: #35a7ff;
+$black: #111;
+$blackish: #333;
+$whitish: #eee;
+$sans-serif: Roboto, sans-serif;
+$cursive: Pacifico, cursive;
+
+body {
+  background: $white;
+  color: $blackish;
+  padding: 1rem;
+  font-family: $sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  padding: 0;
+  line-height: 1.5;
+  color: #333;
+}
+
+a {
+  color: $dark-blue;
+  border-bottom: 1px dotted $dark-blue;
+  text-decoration: none;
+}
+
+strong {
+  font-weight: bold;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $cursive;
+  font-weight: normal;
+}
+
+h1 {
+  font-size: 82px;
+  margin: 0;
+}
+
+h2 {
+  font-size: 42px;
+  margin: .5em 0 0;
+  text-shadow: 0 .1em 0 $blackish;
+}
+
+h3 {
+  font-size: 42px;
+  margin: 0 0 1em;
+}
+
+h4 {
+  font-family: Roboto, sans-serif;
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  margin: 2em 0 1em;
+  line-height: 1;
+}
+
+ul, ol {
+  padding-left: 2em;
+}
+
+code {
+  font-family: 'Ubuntu Mono', monospace;
+  text-transform: none !important;
+
+  p &,
+  ul & {
+    display: inline-block;
+    padding: 0 4px;
+    background: rgba(0, 0, 0, .05);
+  }
+}
+
+pre {
+  background: $yellow;
+  text-shadow: 0 1px 1px $white;
+  padding: 1em;
+  margin-top: 0;
+  overflow: auto;
+}
+
+section,
+footer,
+header {
+  > div {
+    max-width: 40em;
+    margin: 0 auto;
+    padding: 40px 20px;
+  }
+}
+
+footer {
+  background: $red;
+  color: $white;
+
+  a {
+    color: $white;
+    border-bottom: 1px dotted $white;
+  }
+}
+
+header {
+  background: $red;
+  color: $white;
+  padding: 80px 20px;
+  text-align: center;
+  text-shadow: 0 .4em 0 $blackish;
+  overflow: hidden;
+}
+
+aside {
+  margin: 2em 2em 2em 0;
+  font-size: .9rem;
+  border-left: 3px solid $dark-blue;
+  padding-left: 1em;
+
+  h5 {
+    color: $dark-blue;
+    font-family: $sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-block;
+    margin: 0;
+    vertical-align: text-bottom;
+  }
+}
+
+.about {
+  background: $yellow;
+  text-shadow: 0 1px 1px $white;
+
+  ul {
+    @util reset-list;
+    sushi-roll: >0;
+
+    > li {
+      text-align: center;
+      padding: 1em;
+      background: $white;
+      border-right: 1px solid $yellow;
+
+      &:last-child {
+        border-right: 0;
+      }
+    }
+  }
+}
+
+.tips { 
+  background: $yellow;
+  text-shadow: 0 1px 1px $white;
+
+  a {
+    color: $blackish;
+    border-bottom-color: $blackish;
+  }
+
+  code {
+    color: $blackish;
+  }
+}
+
+.examples {
+  h4 {
+  }
+}
+
+.cheat-sheet { 
+  background: $light-blue;
+  text-shadow: 0 1px 1px $blackish;
+  color: $white;
+
+  a {
+    color: $white;
+    border-bottom: 1px dotted $white;
+    text-decoration: none;
+  }
+
+  table {
+    table-layout: fixed;
+    width: 100%;
+    font-size: 14px;
+
+    @media screen and (max-width: 500px) {
+      font-size: 11px;
+    }
+
+    th {
+      text-align: left;
+    }
+  }
+}
+
+.history {
+  background: $green;
+  color: $blackish;
+}
+
+/* example "theme" */
+$container-padding: 2px;
+$container-background: $light-blue;
+$item-background: $dark-blue;
+$item-color: $white;
+
+/* each example sushi-roll */
+*[id^="example-"] {
+  @util reset-list;
+  overflow: hidden;
+  background: $container-background;
+  padding: 1px;
+
+  /* each box of every example */
+  > * {
+    background: $item-background;
+    color: $item-color;
+    text-align: center;
+    font-size: 14px;
+    padding: 2rem 1px;
+
+    /* faux transparency between boxes */
+    margin: 1px;
+  }
+
+  &.mini {
+    padding: 1px;
+
+    > * {
+      padding: 1em 1px;
+    }
+
+    + pre {
+      font-size: 13px;
+      padding: 4px 8px;
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+/* sushi-spacing: 2px around;
+sushi-padding: 1em; */
+
+#example-fixed-widths { sushi-roll: 100px, 25%, 15em; }
+#example-one-size-fits-all { sushi-roll: 100px; }
+#example-too-tight { sushi-roll: 50%; }
+#example-no-prefix { sushi-roll: 300px; }
+#example-equal-prefix { sushi-roll: =300px, 300px, 300px; }
+#example-gt-prefix { sushi-roll: >100px, >100px, 100px; }
+
+#example-3 { sushi-roll: 25%, >25%; }
+#example-4 { sushi-roll: 40%, >40%, 40%; }
+
+#example-mini-1 { sushi-roll: fit, fit, fit, spread; }
+#example-mini-2 { sushi-roll: >0; }
+#example-mini-3 { sushi-roll: >0; }

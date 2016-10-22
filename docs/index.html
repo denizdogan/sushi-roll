@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sushi Roll</title>
+  <link rel="stylesheet" type="text/css" href="output.css">
+</head>
+<body>
+
+  <header>
+    <h1>Sushi Roll</h1>
+    <h2>PostCSS plugin for flexbox-based layouts</h2>  
+  </header>
+
+  <section class="about">
+    <div>
+      <h3>What is it?</h3>
+
+      <p>
+        Sushi Roll is a PostCSS plugin which creates fixed or fluid flexbox-based layouts with a single line of CSS.
+      </p>
+
+      <p>
+        Set the <code>sushi-roll</code> property on a container to define the widths of its children.
+      </p>
+
+      <ul>
+        <li>One line of CSS per layout</li>
+        <li>It's all flexbox under the hood</li>
+        <li>Use any HTML you want</li>
+      </ul>
+
+      <p>
+        Check out the <a href="#examples">examples</a> below!
+      </p>
+
+      <aside>
+        <h5>Learn flexbox while you're at it!</h5>
+
+        Sushi Roll is essentially just a wrapper around standard CSS flexbox properties, so to make full use of Sushi Roll, you may want to check out the CSS it generates.
+      </aside>
+    </div>
+  </section>
+
+  <section class="examples" id="examples">
+    <div>
+      <h3>Doucmentation</h3>
+
+      <p>
+        In all of these examples, the HTML is:
+      </p>
+
+      <pre><code>&lt;ul id=&quot;example-1&quot;&gt;
+  &lt;li&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;/li&gt;
+  ...
+&lt;/ul&gt;</code></pre>
+
+      <p>
+        Unless otherwise stated, the number of <code>li</code> child elements is equal to the number of values passed to <code>sushi-roll</code>.
+      </p>
+
+      <p>
+        I've applied some simple styling to the examples in addition to the <code>sushi-roll</code> property. Sushi Roll only handles flexbox-related CSS properties, unless otherwise stated.
+      </p>
+
+      <aside>
+        <h5>Are you a flexbox expert?</h5>
+
+        Then maybe you should just <a href="#cheat-sheet">read the cheat sheet</a>!
+      </aside>
+
+      <h4>Basic layout</h4>
+
+      <ul id="example-fixed-widths">
+        <li>100px</li>
+        <li>25%</li>
+        <li>15em</li>
+      </ul>
+      <pre><code>sushi-roll: 100px, 25%, 15em;</code></pre>
+
+      <p>
+        We have a <code>ul</code> with three <code>li</code> elements, just as described in the beginning of the documentation. We apply the above <code>sushi-roll</code> property to the <code>ul</code> element, which puts the three <code>li</code> elements in a row.
+      </p>
+
+      <p>
+        Note that Sushi Roll works with all kinds of elements, not just list elements.
+      </p>
+
+      <ul id="example-one-size-fits-all">
+        <li>100px</li>
+        <li>100px</li>
+        <li>100px</li>
+      </ul>
+      <pre><code>sushi-roll: 100px;</code></pre>
+
+      <p>
+        If you pass just one value to <code>sushi-roll</code>, that value will apply to all child elements, regardless of how many there are. In this case <code>100px</code> applies to all four boxes.
+      </p>
+
+      <aside>
+        <h5>
+          A note on responsiveness:
+        </h5>
+
+        Sushi Roll is blissfully unaware of any kind of responsiveness. It leaves the responsiveness up to you, as a web developer. Use media queries or some wrapper around them.
+      </aside>
+
+      <ul id="example-too-tight">
+        <li>50%</li>
+        <li>50%</li>
+        <li>50%</li>
+      </ul>
+      <pre><code>sushi-roll: 50%;</code></pre>
+
+      <p>
+        In this case, we have three <code>li</code> elements that all wish to take up 50 percent of the container width. They can't fit! But since they're all happy to give away some space to its neighbors, they all come together and divide the container widths equally among themselves.
+      </p>
+
+      <p>
+        This is the default behavior. None of the boxes will grow past their requested sizes, regardless of their content, but they will shrink to fit into the container if needed.
+      </p>
+
+      <h4>Prefixes and box behaviors</h4>
+
+      <ul id="example-no-prefix" class="mini">
+        <li>300px</li>
+        <li>300px</li>
+        <li>300px</li>
+        <li>300px</li>
+      </ul>
+      <pre><code>sushi-roll: 300px;</code></pre>
+
+      <p>
+        By default, a box will never exceed the width you give it. However, if the container gets full, it will start "giving away" space to other boxes, trying not to overflow the container. This can be seen in the example above, where none of the boxes actually fit, but share the avaiable space.
+      </p>
+
+      <ul id="example-equal-prefix" class="mini">
+        <li>=300px</li>
+        <li>300px</li>
+        <li>300px</li>
+      </ul>
+      <pre><code>sushi-roll: =300px, 300px, 300px;</code></pre>
+
+      <p>
+        If you prefix a value with <code>=</code>, as in <code>=300px</code>, the box will refuse to give away space. It'd rather overflow the container. It is still not greedy though and will not take more space than it requested.
+      </p>
+
+      <ul id="example-gt-prefix" class="mini">
+        <li>&gt;100px</li>
+        <li>&gt;100px</li>
+        <li>100px</li>
+      </ul>
+      <pre><code>sushi-roll: &gt;100px, &gt;100px, 100px;</code></pre>
+
+      <p>
+        To make the box greedy, use the <code>&gt;</code> prefix. In the example above, all three boxes fit within the container, but two of them are greedy, sharing whatever the last box didn't take.
+      </p>
+
+      <ul id="example-gt-prefix" class="mini">
+        <li>>100px</li>
+        <li>100px</li>
+        <li>~100px</li>
+      </ul>
+      <pre><code>sushi-roll: &gt;100px, 100px, ~100px;</code></pre>
+
+      <p>
+        The last prefix is <code>~</code>, as in <code>~100px</code>. This makes the box a bit of a nihilist, in that it doesn't really care either way. It'll ask for 100 pixels, but if there's only so much space, it'll gladly take less. But if there's any left-overs, it will be there!
+      </p>
+
+      <p>
+        I couldn't really think of a great example for <code>~</code>, please do come up with one for me!
+      </p>
+
+      <h4>Work in progress</h4>
+
+      <p>
+        This documentation is incomplete, as the project is work in progress.
+      </p>
+
+    </div>
+  </section>
+
+  <section class="cheat-sheet" id="cheat-sheet">
+    <div>
+      <h3>Cheat sheet</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th><code>sushi-roll</code></th>
+            <th><code>flex-grow</code></th>
+            <th><code>flex-shrink</code></th>
+            <th><code>flex-basis</code></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>100px</code></td>
+            <td class="inherited"><code>0</code></td>
+            <td class="inherited"><code>1</code></td>
+            <td><code>100px</code></td>
+          </tr>
+          <tr>
+            <td><code>&gt;auto</code></td>
+            <td><code>1</code></td>
+            <td class="inherited"><code>1</code></td>
+            <td><code>auto</code></td>
+          </tr>
+          <tr>
+            <td><code>~20%</code></td>
+            <td><code>1</code></td>
+            <td class="inherited"><code>0</code><code></code></td>
+            <td><code>20%</code></td>
+          </tr>
+          <tr>
+            <td><code>=5em</code></td>
+            <td><code>0</code></td>
+            <td><code>0</code></td>
+            <td><code>5em</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="usage">
+    <div>
+      <h3>Installation &amp; Usage</h3>
+
+      <p>
+        To install Sushi Roll, run:
+      </p>
+
+      <pre><code>$ npm install -D sushi-roll</code></pre>
+
+      <p>
+        Then include it in your PostCSS plugin chain, like you would any other plugin. There are currently no options to configure.
+      </p>
+
+      <p>
+        If you're new to PostCSS but want to try Sushi Roll, install <a href="https://github.com/code42day/postcss-cli" target="_blank">postcss-cli</a> and try it like this:
+      </p>
+
+      <pre><code>$ npm install -g postcss-cli
+$ npm install sushi-roll
+$ postcss --local-plugins -u sushi-roll -o output.css input.css</code></pre>
+
+      <p>
+        This documentation stylesheet was built using the following command (using <a href="https://github.com/code42day/postcss-cli" target="_blank">postcss-cli</a>):
+      </p>
+
+      <p>
+        For maximum compatibility, use some sort of Flexbugs fixing plugin for PostCSS, I'm not sure which one is the best to be honest. <a href="postcss-flexbugs-fixes">PostCSS Flexbugs Fixes</a> seems good.
+      </p>
+    </div>
+  </section>
+
+  <section class="tips">
+    <div>
+      <h3>Tips &amp; Information</h3>
+
+      <h4>About box-sizing</h4>
+
+      <p>
+        In Sushi Roll, every child element gets <code>box-sizing: border-box</code> applied to it. This makes it much easier to work with paddings and borders without worrying about the surrounding layout.
+      </p>
+
+      <h4>Output size</h4>
+
+      <p>
+        If you're worried about output size, use a CSS minifying step in your build process. If it's still too heavy after that, send me a pull request with your solution to the problem and we'll both be happy!
+      </p>
+    </div>
+  </section>
+
+  <section class="ideas">
+    <div>
+      <h3>Ideas for the Future</h3>
+
+      <p>
+        I'm hoping to implement some related useful functionality in the future, including but not limited to:
+      </p>
+
+      <ul>
+        <li>New property to adjust values of <code>justify-content</code> and <code>align-items</code></li>
+        <li>New property to adjust margins and paddings</li>
+      </ul>
+
+      <p>
+        I'm not sure if they'll ever happen, but I'm very open to hearing other possibilities.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <div>
+      <a href="https://github.com/denizdogan/sushi-roll">
+        Check it out on GitHub
+      </a> 
+    </div>
+  </footer>
+
+  <script src="output.js"></script>
+</body>
+</html>

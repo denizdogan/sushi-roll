@@ -1,0 +1,26 @@
+{
+  "name": "sushi-roll",
+  "version": "0.1.0",
+  "description": "PostCSS plugin for creating flexbox-based layouts",
+  "keywords": [
+    "postcss",
+    "postcss-plugin",
+    "flexbox",
+    "layout"
+  ],
+  "author": "Deniz Dogan <deniz@dogan.se>",
+  "license": "MIT",
+  "repository": "denizdogan/sushi-roll",
+  "bugs": {
+    "url": "https://github.com/denizdogan/sushi-roll/issues"
+  },
+  "homepage": "https://github.com/denizdogan/sushi-roll",
+  "dependencies": {
+    "postcss": "^5.2.0"
+  },
+  "devDependencies": {
+    "standard": "^8.4.0"
+  },
+  "scripts": {
+  }
+}

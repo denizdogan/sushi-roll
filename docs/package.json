@@ -1,0 +1,29 @@
+{
+  "name": "sushi-roll-docs",
+  "version": "0.0.0",
+  "description": "Documentation",
+  "scripts": {
+    "watch-css": "postcss -w -c postcss.dev.json",
+    "dist-css": "postcss -c postcss.dist.json",
+    "watch-js": "watchify input.js -o output.js -t babelify --presets es2015",
+    "dist-js": "browserify input.js -o output.js -t babelify --presets es2015 -t uglifyify -x .js"
+  },
+  "author": "Deniz Dogan <deniz@dogan.se>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.16.0",
+    "babel-preset-es2015": "^6.16.0",
+    "babel-register": "^6.16.3",
+    "babelify": "^7.3.0",
+    "browserify": "^13.1.0",
+    "cssnano": "^3.7.7",
+    "postcss-cli": "^2.6.0",
+    "postcss-flexbugs-fixes": "^2.0.0",
+    "postcss-nested": "^1.0.0",
+    "postcss-simple-vars": "^3.0.0",
+    "postcss-utilities": "^0.5.1",
+    "uglifyify": "^3.0.4",
+    "watchify": "^3.7.0"
+  },
+  "main": "index.js"
+}
