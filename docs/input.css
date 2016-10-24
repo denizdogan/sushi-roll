@@ -136,6 +136,31 @@ aside {
   }
 }
 
+#github-link {
+  border: 0;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+
+  img {
+    width: 3vw;
+    vertical-align: middle;
+    margin-left: .5em;
+
+    /* lol */
+    @media screen and (max-width: 900px) { width: 5vw; }
+    @media screen and (max-width: 500px) { width: 7vw; }
+  }
+
+  &::before {
+    content: "Code source on GitHub";
+    color: $white;
+    text-shadow: none;
+    vertical-align: middle;
+    font-size: 14px;
+  }
+}
+
 .about {
   background: $yellow;
   text-shadow: 0 1px 1px $white;
@@ -233,7 +258,7 @@ $item-color: $white;
     padding: 2rem 1px;
 
     /* faux transparency between boxes */
-    margin: 1px;
+    margin-right: 1px;
   }
 
   &.mini {
