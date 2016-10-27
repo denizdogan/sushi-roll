@@ -19,7 +19,9 @@
     "postcss": "^5.2.0"
   },
   "devDependencies": {
-    "standard": "^8.4.0"
+    "standard": "^8.5.0"
   },
-  "scripts": {}
+  "scripts": {
+    "test": "standard -v index.js docs/input.js"
+  }
 }
