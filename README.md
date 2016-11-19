@@ -1,4 +1,4 @@
-# PostCSS Sushi Roll
+# Sushi Roll
 
 [PostCSS](https://github.com/postcss/postcss) plugin for creating flexbox-based layouts. [Official documentation](https://denizdogan.github.io/sushi-roll)
 
