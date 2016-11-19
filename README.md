@@ -1,8 +1,10 @@
 # PostCSS Sushi Roll
 
-[PostCSS] plugin for creating flexbox-based layouts.
+[PostCSS](https://github.com/postcss/postcss) plugin for creating flexbox-based layouts. [Official documentation](https://denizdogan.github.io/sushi-roll)
 
 [![Standard - JavaScript Style Guide](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
+
+`#layout { sushi-roll: 100px, >20%, =3em, ~auto; }`
 
 ## Install
 
@@ -10,7 +12,7 @@
 
 ## Usage
 
-[Official documentation](https://denizdogan.github.io/sushi-roll)
+[Read the documentation](https://denizdogan.github.io/sushi-roll)
 
 ## TODO
 
